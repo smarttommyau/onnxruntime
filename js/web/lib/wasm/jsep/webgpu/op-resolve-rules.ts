@@ -2,6 +2,7 @@
 // Licensed under the MIT License.
 
 import * as binaryOps from './ops/binary-op';
+import {concat, parseConcatAttributes} from './ops/concat';
 import {conv, parseConvAttributes} from './ops/conv';
 import {expand} from './ops/expand';
 import {gemm, parseGemmAttributes} from './ops/gemm';
@@ -30,6 +31,7 @@ export const WEBGPU_OP_RESOLVE_RULES: Map<string, OperatorImplementation> = new 
   ['Ceil', [unaryOps.ceil]],
   ['ClipV10', [unaryOps.clipV10]],
   ['Clip', [unaryOps.clip]],
+  ['Concat', [concat, parseConcatAttributes]],
   ['Conv', [conv, parseConvAttributes]],
   ['Cos', [unaryOps.cos]],
   ['Cosh', [unaryOps.cosh]],
